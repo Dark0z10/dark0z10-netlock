@@ -1,21 +1,18 @@
 #!/bin/bash
-# dark0z10-netlock installer
+set -e
 
-BIN="/usr/local/bin/dark0z10-netlock"
-SERVICE="/etc/systemd/system/dark0z10-netlock.service"
+echo "[*] Installing dark0z10-netlock..."
 
-[ "$EUID" -ne 0 ] || {
-    echo "Run as root"
-    exit 1
-}
+# Install runtime script
+sudo cp dark0z10-netlock.sh /usr/local/bin/dark0z10-netlock.sh
+sudo chmod +x /usr/local/bin/dark0z10-netlock.sh
 
-cp dark0z10-netlock.sh "$BIN" || exit 1
-chmod +x "$BIN"
+# Install systemd service
+sudo cp dark0z10-netlock.service /etc/systemd/system/dark0z10-netlock.service
 
-cp dark0z10-netlock.service "$SERVICE" || exit 1
+# Reload systemd
+sudo systemctl daemon-reload
 
-systemctl daemon-reload
-
-echo "dark0z10-netlock installed"
-echo "Enable with:"
-echo "  sudo systemctl enable --now dark0z10-netlock"
+echo "[✓] Installed successfully."
+echo "    Service is NOT started or enabled."
+echo "    Use: sudo systemctl enable --now dark0z10-netlock"
