@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/netlock-logo.jpeg" width="350" alt="dark0z10-netlock logo">
+</p>
+
 # dark0z10-netlock 🔒
 
 Kernel-level VPN kill switch for Linux using `iptables`.
@@ -115,7 +119,7 @@ This will:
 
 ## Verification
 
-**Check id dark0z10-netlock service is running:**
+**Check if dark0z10-netlock service is running:**
 ```bash
 systemctl status dark0z10-netlock
 ```
@@ -132,5 +136,23 @@ Expected output includes:
 ```
 
 **Behavior Test(Very important to test on first install):**
-+ Disconnect VPN → no internet access  
-+ Reconnect VPN → internet restored
++ **Disconnect VPN → no internet access**
++ **Reconnect VPN → internet restored**
+
+## 
+
+**Key Owner:** Dark0z10  
+**Fingerprint:** `ABCD 1234 EFGH 5678 IJKL 9ABC DEF0 1234 5678 90AB`
+
+- GitHub: https://github.com/Dark0z10.gpg
+- keys.openpgp.org: https://keys.openpgp.org/search?q=ABCD1234EFGH5678
+
+<p align="center" style="margin-bottom:1px; margin-top:30px">
+<img style="border-radius: 100%; width: 100px" src="assets/avatar.jpg">
+</p> 
+<p align="center" style="margin-bottom:1px">
+Dark0z10@proton.me
+</p>
+<p align="center"> 
+dark0z10@atomicmail.io
+</p>
