@@ -18,7 +18,7 @@ Once enabled:
 - Firewall resets are automatically corrected
 - Rules persist across reboots using `systemd`
 
-Designed to work alongside VPN clients (e.g. ExpressVPN).
+**Designed to work alongside VPN clients and their kill switches (e.g. ExpressVPN), effectively giving you two layers of protection**
 
 ---
 
@@ -32,6 +32,25 @@ Designed to work alongside VPN clients (e.g. ExpressVPN).
 - Self-healing watchdog
 - systemd-native persistence
 - Minimal Bash, no external dependencies
+
+---
+
+## 👁️ Watchdog  Service
+
+- Runs continuously via systemd and repeatedly checks that:
+
+  - OUTPUT policy is DROP
+
+  - VPN-only rule (-o tun0) exists
+
+  - Loopback traffic is allowed
+
+  - Established connections are allowed
+
+  - IPv6 is still fully blocked
+
+  **If any of these are missing or changed,**
+  **the watchdog re-applies the full firewall ruleset**
 
 ---
 
