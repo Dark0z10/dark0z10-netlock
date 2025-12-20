@@ -1,0 +1,14 @@
+[Unit]
+Description=dark0z10-netlock VPN Kill Switch
+After=network-pre.target
+Before=network.target
+DefaultDependencies=no
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/dark0z10-netlock.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

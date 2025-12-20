@@ -96,6 +96,11 @@ This will:
 
 ## Verification
 
+**Check id dark0z10-netlock service is running:**
+```bash
+systemctl status dark0z10-netlock
+```
+
 **Check the OUTPUT policy:**
 ```bash
 sudo iptables -S OUTPUT
