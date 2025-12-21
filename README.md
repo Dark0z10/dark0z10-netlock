@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/netlock-logo.jpeg" width="350" alt="dark0z10-netlock logo">
+  <img style="margin:-50px;" src="assets/netlock-logo.png" width="450" alt="dark0z10-netlock logo">
 </p>
 
 # dark0z10-netlock 🔒
@@ -147,8 +147,9 @@ Expected output includes:
 - GitHub: https://github.com/Dark0z10.gpg
 - keys.openpgp.org: https://keys.openpgp.org/search?q=ABCD1234EFGH5678
 
-<p align="center" style="margin-bottom:1px; margin-top:30px">
-<img style="border-radius: 100%; width: 100px" src="assets/avatar.jpg">
+<p align="center" style="margin-bottom:1px; margin-top:30px; border: 0px solid grey"">
+<img style="width: 120px" src="assets/avatar-circle.png">
+
 </p> 
 <p align="center" style="margin-bottom:1px">
 Dark0z10@proton.me
