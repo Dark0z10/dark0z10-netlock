@@ -106,6 +106,7 @@ sudo systemctl disable dark0z10-netlock
 
 **Fully remove the kill switch and restore normal networking:**
 ```bash
+chmod +x dark0z10-netlock-uninstall.sh
 sudo ./dark0z10-netlock-uninstall.sh
 ```
 
