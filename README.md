@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/netlock-logo.png" width="350" alt="dark0z10-netlock logo">
+  <img src="assets/netlock-logo.png" width="400" alt="dark0z10-netlock logo">
 </p>
 
 # dark0z10-netlock 🔒
