@@ -100,25 +100,18 @@ sudo systemctl stop dark0z10-netlock
 ```bash
 sudo systemctl disable dark0z10-netlock
 ```
----
 
-## 🧹 Uninstall
+### ✅ Verification
 
-**Fully remove the kill switch and restore normal networking:**
+**View netlock status (do not start on boot):**
 ```bash
-chmod +x dark0z10-netlock-uninstall.sh
-sudo ./dark0z10-netlock-uninstall.sh
+sudo systemctl disable dark0z10-netlock
 ```
 
-This will:
- - stop and disable the service
- - Remove installed files
- - Restore ACCEPT policies for IPv4 and IPv6
-
-
----
-
-## Verification
+**Check if dark0z10-netlock service is running:**
+```bash
+systemctl status dark0z10-netlock
+```
 
 **Check if dark0z10-netlock service is running:**
 ```bash
