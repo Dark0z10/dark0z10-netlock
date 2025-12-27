@@ -103,15 +103,20 @@ sudo systemctl disable dark0z10-netlock
 
 ### ✅ Verification
 
-**View netlock status (do not start on boot):**
-```bash
-sudo systemctl disable dark0z10-netlock
-```
+netlock-status
 
 **Check if dark0z10-netlock service is running:**
-```bash
-systemctl status dark0z10-netlock
-```
+  <div>
+    <pre>
+<span style="color:#f1c40f;font-weight:700"> ==== 🔒 dark0z10-netlock ====</span>
+
+<span color="green">Service:</span>        <span style="color:#2ecc71;font-weight:700">● RUNNING</span>
+<span style="color:#00bcd4">IPv4 killswitch:</span> <span style="color:#2ecc71">✓ ACTIVE</span>
+<span style="color:#00bcd4">VPN route:</span>       <span style="color:#2ecc71">✓ tun0 allowed</span>
+<span style="color:#00bcd4">IPv6 block:</span>      <span style="color:#2ecc71">✓ BLOCKED</span>
+<span style="color:#00bcd4">Watchdog:</span> <span style="color:#95a5a6">[dark0z10-netlock] <span style="color:#2ecc71;font-weight:700" color=red>active</span> — watchdog running</span>
+    </pre>
+  </div>
 
 **Check if dark0z10-netlock service is running:**
 ```bash
