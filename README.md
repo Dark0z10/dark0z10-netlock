@@ -82,35 +82,44 @@ sudo ./dark0z10-netlock-install.sh
 
 ## 🚀 Usage
 
-**Enable and start the kill switch:**
+**Enable and start watchdog:**
 ```bash
-sudo systemctl enable --now dark0z10-netlock
+sudo netlock-enable
 ```
 🔒 From this point on, all traffic is blocked by default.   Only traffic through the VPN interface (`tun0`) is allowed.
 
 ##
 
-**Stop temporarily (without uninstalling):**
+**Stop watchdog temporarily:**
 ```bash
-sudo systemctl stop dark0z10-netlock
+sudo netlock-disable
 ```
 ##
 
-**Disable persistence (do not start on boot):**
+**Disable watchdog (do not start on boot):**
 ```bash
-sudo systemctl disable dark0z10-netlock
+sudo netlock-disable-persistence
+```
+##
+
+**Clears all firewall rules to normal:**
+```bash
+sudo netlock-reset
 ```
 
 ### ✅ Verification
 
-netlock-status
 
 **Check if dark0z10-netlock service is running:**
+```bash
+netlock-status
+```
+**Expected output:**
   <div>
     <pre>
 <span style="color:#f1c40f;font-weight:700"> ==== 🔒 dark0z10-netlock ====</span>
 
-<span color="green">Service:</span>        <span style="color:#2ecc71;font-weight:700">● RUNNING</span>
+<span color="green">Service:</span>        <span style="color:#2ecc71;font-weight:700"> ● RUNNING</span>
 <span style="color:#00bcd4">IPv4 killswitch:</span> <span style="color:#2ecc71">✓ ACTIVE</span>
 <span style="color:#00bcd4">VPN route:</span>       <span style="color:#2ecc71">✓ tun0 allowed</span>
 <span style="color:#00bcd4">IPv6 block:</span>      <span style="color:#2ecc71">✓ BLOCKED</span>
@@ -118,23 +127,8 @@ netlock-status
     </pre>
   </div>
 
-**Check if dark0z10-netlock service is running:**
-```bash
-systemctl status dark0z10-netlock
-```
 
-**Check the OUTPUT policy:**
-```bash
-sudo iptables -S OUTPUT
-```
-
-Expected output includes:
-```bash
--P OUTPUT DROP
--A OUTPUT -o tun0 -j ACCEPT
-```
-
-**Behavior Test(Very important to test on first install):**
+**Behavior Test:**
 + **Disconnect VPN → no internet access**
 + **Reconnect VPN → internet restored**
 
