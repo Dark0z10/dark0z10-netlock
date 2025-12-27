@@ -4,6 +4,11 @@
 SERVICE="dark0z10-netlock"
 BIN="/usr/local/bin/dark0z10-netlock.sh"
 STATUS_CMD="/usr/local/bin/netlock-status"
+ENABLE_CMD="/usr/local/bin/netlock-enable"
+DISABLE_CMD="/usr/local/bin/netlock-disable"
+DISABLE_PERSISTENCE_CMD="/usr/local/bin/netlock-disable-persistence"
+RESET_CMD="/usr/local/bin/netlock-reset"
+UNINSTALL_CMD="/usr/local/bin/netlock-uninstall"
 UNIT="/etc/systemd/system/dark0z10-netlock.service"
 
 # Require root
@@ -17,7 +22,7 @@ systemctl stop "$SERVICE" 2>/dev/null
 systemctl disable "$SERVICE" 2>/dev/null
 
 # Remove installed files
-rm -f "$BIN" "$STATUS_CMD" "$UNIT"
+rm -f "$BIN" "$STATUS_CMD" "$ENABLE_CMD" "$DISABLE_CMD" "$DISABLE_PERSISTENCE_CMD" "$RESET_CMD" "$UNINSTALL_CMD" "$UNIT"
 systemctl daemon-reload
 
 # Restore open networking (IPv4)

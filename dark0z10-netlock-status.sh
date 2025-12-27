@@ -4,9 +4,9 @@
 echo
 tput bold; tput setaf 3; echo " ==== 🔒 dark0z10-netlock ===="; tput sgr0; echo
 
-# Service status
+# Service status (checks if firewall rules are active, not if systemd service is running)
 tput setaf 6; printf "Service:        "; tput sgr0
-if systemctl is-active --quiet dark0z10-netlock; then
+if sudo iptables -S OUTPUT | grep -q "^-P OUTPUT DROP"; then
     tput bold; tput setaf 2; echo "● RUNNING"; tput sgr0
 else
     tput bold; tput setaf 1; echo "● STOPPED"; tput sgr0
@@ -41,7 +41,7 @@ tput setaf 6; printf "Watchdog Service: "; tput sgr0
 if systemctl is-active --quiet dark0z10-netlock; then
     sudo journalctl -u  dark0z10-netlock -n 1 --no-pager -o cat | sed "s/active/$(tput bold; tput setaf 2)active$(tput sgr0)/g"
 else
-    sudo journalctl -u dark0z10-netlock -n 1 --no-pager -o cat | sed "s/active/$(tput bold; tput setaf 1)active$(tput sgr0)/g"
+    tput setaf 1; echo "[dark0z10-netlock] inactive — watchdog not running"; tput sgr0
 fi
 
 echo
