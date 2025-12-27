@@ -7,6 +7,10 @@ echo "[*] Installing dark0z10-netlock..."
 sudo cp dark0z10-netlock.sh /usr/local/bin/dark0z10-netlock.sh
 sudo chmod +x /usr/local/bin/dark0z10-netlock.sh
 
+# Install status command
+sudo cp dark0z10-netlock-status.sh /usr/local/bin/netlock-status
+sudo chmod +x /usr/local/bin/netlock-status
+
 # Install systemd service
 sudo cp dark0z10-netlock.service /etc/systemd/system/dark0z10-netlock.service
 
@@ -16,3 +20,4 @@ sudo systemctl daemon-reload
 echo "[✓] Installed successfully."
 echo "    Service is NOT started or enabled."
 echo "    Use: sudo systemctl enable --now dark0z10-netlock"
+echo "    Check status: netlock-status"

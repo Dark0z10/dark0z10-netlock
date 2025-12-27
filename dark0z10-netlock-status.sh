@@ -1,8 +1,8 @@
 #!/bin/bash
 # dark0z10-netlock status checker
 
-printf "\e[1m👁️  dark0z10-netlock  Status\e[0m\n"
 echo
+tput bold; tput setaf 3; echo " ==== 🔒 dark0z10-netlock ===="; tput sgr0; echo
 
 # Service status
 tput setaf 6; printf "Service:        "; tput sgr0
@@ -36,6 +36,12 @@ else
     tput setaf 1; echo "✗ OPEN"; tput sgr0
 fi
 
-# Last log
-tput setaf 6; printf "Last log:        "; tput sgr0
-sudo journalctl -u dark0z10-netlock -n 1 --no-pager -o cat
+# Last log with "active" highlighted based on service status
+tput setaf 6; printf "Watchdog Service: "; tput sgr0
+if systemctl is-active --quiet dark0z10-netlock; then
+    sudo journalctl -u  dark0z10-netlock -n 1 --no-pager -o cat | sed "s/active/$(tput bold; tput setaf 2)active$(tput sgr0)/g"
+else
+    sudo journalctl -u dark0z10-netlock -n 1 --no-pager -o cat | sed "s/active/$(tput bold; tput setaf 1)active$(tput sgr0)/g"
+fi
+
+echo

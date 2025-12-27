@@ -2,7 +2,8 @@
 # dark0z10-netlock uninstall
 
 SERVICE="dark0z10-netlock"
-BIN="/usr/local/bin/dark0z10-netlock"
+BIN="/usr/local/bin/dark0z10-netlock.sh"
+STATUS_CMD="/usr/local/bin/netlock-status"
 UNIT="/etc/systemd/system/dark0z10-netlock.service"
 
 # Require root
@@ -16,7 +17,7 @@ systemctl stop "$SERVICE" 2>/dev/null
 systemctl disable "$SERVICE" 2>/dev/null
 
 # Remove installed files
-rm -f "$BIN" "$UNIT"
+rm -f "$BIN" "$STATUS_CMD" "$UNIT"
 systemctl daemon-reload
 
 # Restore open networking (IPv4)
