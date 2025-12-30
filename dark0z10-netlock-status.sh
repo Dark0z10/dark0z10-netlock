@@ -39,7 +39,7 @@ fi
 # Last log with "active" highlighted based on service status
 tput setaf 6; printf "Watchdog Service: "; tput sgr0
 if systemctl is-active --quiet dark0z10-netlock; then
-    sudo journalctl -u  dark0z10-netlock -n 1 --no-pager -o cat | sed "s/active/$(tput bold; tput setaf 2)active$(tput sgr0)/g"
+    sudo journalctl -u dark0z10-netlock -n 50 --no-pager -o cat | grep "\[dark0z10-netlock\]" | tail -1 | sed "s/active/$(tput bold; tput setaf 2)active$(tput sgr0)/g"
 else
     tput setaf 1; echo "[dark0z10-netlock] inactive — watchdog not running"; tput sgr0
 fi
