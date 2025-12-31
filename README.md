@@ -132,21 +132,27 @@ netlock-status
 + **Disconnect VPN → no internet access**
 + **Reconnect VPN → internet restored**
 
-## 
+## Notes
+🌐 **VM/Vagrant     Integration**
+
+If you're using Vagrant to host your virtual machines (e.g., Metasploitable3) and you want to ensure all traffic from the VM is routed through the VPN using dark0z10-netlocK, follow the instructions below.
+
+**Enable IP forwarding and configure NAT (MASQUERADE) to route traffic from your VMs through the VPN:**
+
+**Enable IP forwarding:**
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+```
+
+**Set up NAT for VPN interface (tun0):**
+```bash
+sudo iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE
+```
+
+----
 
 **Key Owner:** Dark0z10  
 **Fingerprint:** `ABCD 1234 EFGH 5678 IJKL 9ABC DEF0 1234 5678 90AB`
 
 - GitHub: https://github.com/Dark0z10.gpg
 - keys.openpgp.org: https://keys.openpgp.org/search?q=ABCD1234EFGH5678
-
-<p align="center" style="margin-bottom:1px; margin-top:30px; border: 0px solid grey"">
-<img style="width: 120px" src="assets/avatar-circle.png">
-
-</p> 
-<p align="center" style="margin-bottom:1px">
-Dark0z10@proton.me
-</p>
-<p align="center"> 
-dark0z10@atomicmail.io
-</p>
